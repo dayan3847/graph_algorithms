@@ -20,8 +20,5 @@ class TinMarin:
         people_count: int = len(self.people_circle)
         next_person_index = self.__last_select_person_index + self.__phrases_count - 1
         next_person_index_mod = next_person_index % people_count
-        # if you continue with the next one that was selected
-        # self.__last_select_person_index = next_person_index_mod
-        # if you continue by the one before the one that was selected
-        self.__last_select_person_index = (next_person_index_mod - 1) % people_count
+        self.__last_select_person_index = next_person_index_mod
         return self.people_circle.pop(next_person_index_mod)
