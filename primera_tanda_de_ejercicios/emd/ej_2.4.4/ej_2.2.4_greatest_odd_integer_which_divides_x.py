@@ -1,4 +1,6 @@
 def greatest_odd_integer_which_divides_x(x: int) -> int:
+    if 1 == x:
+        return 1
     if 1 > x or 1 == x % 2:
         return -1
     while 0 == x % 2:
