@@ -116,6 +116,38 @@ class Graph:
                 edges.append(edge)
         return edges
 
+    def recorrido_ancho(self, node_data: str) -> List[Node]:
+        node = self.get_node(node_data)
+        if node is None:
+            return []
+        queue: List[Node] = []
+        visited: List[Node] = []
+        queue.append(node)
+        while len(queue) > 0:
+            node = queue.pop(0)
+            if node not in visited:
+                visited.append(node)
+                adjacent_nodes = self.adjacent(str(node))
+                for adjacent_node in adjacent_nodes:
+                    queue.append(adjacent_node)
+        return visited
+
+    def recorrido_profundidad(self, node_data: str) -> List[Node]:
+        node = self.get_node(node_data)
+        if node is None:
+            return []
+        stack: List[Node] = []
+        visited: List[Node] = []
+        stack.append(node)
+        while len(stack) > 0:
+            node = stack.pop()
+            if node not in visited:
+                visited.append(node)
+                adjacent_nodes = self.adjacent(str(node))
+                for adjacent_node in adjacent_nodes:
+                    stack.append(adjacent_node)
+        return visited
+
     def __str__(self) -> str:
         graph_str = f"{self.__name}:\n"
         graph_str += f"Nodes({len(self.__nodes)}): [ "

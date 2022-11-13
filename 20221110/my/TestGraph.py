@@ -48,7 +48,8 @@ if __name__ == "__main__":
     test_graph = TestGraph()
     # We print the graph with the valencies of each node.
     test_graph.print_graph()
-    test_graph.test_remove_edge()
-    test_graph.print_graph()
-    test_graph.test_remove_node()
-    test_graph.print_graph()
+    # test_graph.test_remove_edge()
+    # test_graph.print_graph()
+    # test_graph.test_remove_node()
+    # test_graph.print_graph()
+
