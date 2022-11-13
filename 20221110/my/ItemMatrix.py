@@ -15,7 +15,7 @@ class ItemMatrix:
         self.f = f
 
     def __str__(self) -> str:
-        result = f"(Color: {self.color}, Parent: {self.parent}, d: {self.d}"
+        result = f"({self.color}, Parent: {self.parent}, d: {self.d}"
         if self.f != -1:
             result += f", f: {self.f}"
         result += ')'
