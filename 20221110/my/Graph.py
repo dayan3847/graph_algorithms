@@ -106,7 +106,7 @@ class Graph:
         for edge in self.__edges:
             if edge.node_from == node_from and edge.node_to == node_to:
                 return edge
-            return None
+        return None
 
     # obtain all edges that are connected to the node
     def __get_edges_by_node(self, node: Node) -> List[Edge]:
@@ -125,6 +125,6 @@ class Graph:
         graph_str += f"Edges({len(self.__edges)}): [ "
         for edge in self.__edges:
             graph_str += str(edge) + ' '
-        graph_str += str(']\n')
+        graph_str += str(']')
 
         return graph_str
