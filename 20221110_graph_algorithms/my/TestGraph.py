@@ -45,16 +45,25 @@ class TestGraph:
         print()
 
     def test_breadth_first_search(self):
-        graph_searches = GraphSearches(self.graph)
         print('Breadth First Search: (A)')
+        nodes = self.graph.breadth_first_search('A')
+        text = f"Nodes({len(nodes)}): [ "
+        for node in nodes:
+            text += str(node) + ' '
+        text += str(']\n')
+        print(text)
+
+    def test_breadth_first_search_book(self):
+        graph_searches = GraphSearches(self.graph)
+        print('Breadth First Search: (A) Book')
         matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book('A')
         for i in range(len(matrix)):
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()
 
-    def test_breadth_first_search_not_initialized(self):
+    def test_breadth_first_search_book_not_initialized(self):
         graph_searches = GraphSearches(self.graph)
-        print('Breadth First Search: (A) (not initialized)')
+        print('Breadth First Search: (A) Book (not initialized)')
         matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book_not_initialized('A')
         for i in range(len(matrix)):
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
@@ -62,6 +71,15 @@ class TestGraph:
 
     def test_depth_first_search(self):
         print('Depth First Search:')
+        nodes = self.graph.depth_first_search('A')
+        text = f"Nodes({len(nodes)}): [ "
+        for node in nodes:
+            text += str(node) + ' '
+        text += str(']\n')
+        print(text)
+
+    def test_depth_first_search_book(self):
+        print('Depth First Search: (A) Book')
         graph_searches = GraphSearches(self.graph)
         print('')
         matrix: dict[str, ItemMatrix] = graph_searches.depth_first_search_book()
@@ -75,10 +93,14 @@ if __name__ == "__main__":
     test_graph = TestGraph()
     # We print the graph with the valencies of each node.
     test_graph.print_graph()
+    test_graph.test_breadth_first_search()
+    test_graph.test_breadth_first_search_book()
+    test_graph.test_breadth_first_search_book_not_initialized()
+    test_graph.test_depth_first_search()
+    test_graph.test_depth_first_search_book()
+
+    # test_graph.print_graph()
     # test_graph.test_remove_edge()
     # test_graph.print_graph()
     # test_graph.test_remove_node()
     # test_graph.print_graph()
-    test_graph.test_breadth_first_search()
-    test_graph.test_breadth_first_search_not_initialized()
-    test_graph.test_depth_first_search()
