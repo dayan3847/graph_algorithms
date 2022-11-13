@@ -116,7 +116,7 @@ class Graph:
                 edges.append(edge)
         return edges
 
-    def recorrido_ancho(self, node_data: str) -> List[Node]:
+    def breadth_first_search(self, node_data: str) -> List[Node]:
         node = self.get_node(node_data)
         if node is None:
             return []
@@ -131,7 +131,7 @@ class Graph:
                     queue.append(adjacent_node)
         return visited
 
-    def recorrido_profundidad(self, node_data: str) -> List[Node]:
+    def depth_first_search(self, node_data: str) -> List[Node]:
         node = self.get_node(node_data)
         if node is None:
             return []
