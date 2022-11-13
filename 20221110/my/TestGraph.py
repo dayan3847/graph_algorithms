@@ -1,4 +1,6 @@
 from Graph import Graph
+from GraphSearches import GraphSearches
+from ItemMatrix import ItemMatrix
 
 
 class TestGraph:
@@ -42,6 +44,14 @@ class TestGraph:
         self.graph.remove_edge('A', 'F')
         print()
 
+    def test_breadth_first_search(self):
+        graph_searches = GraphSearches(self.graph)
+        print('Breadth First Search: (A)')
+        matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book('A')
+        for i in range(len(matrix)):
+            print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
+        print()
+
 
 if __name__ == "__main__":
     # We initialize the graph.
@@ -52,4 +62,4 @@ if __name__ == "__main__":
     # test_graph.print_graph()
     # test_graph.test_remove_node()
     # test_graph.print_graph()
-
+    test_graph.test_breadth_first_search()

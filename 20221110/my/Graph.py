@@ -120,9 +120,8 @@ class Graph:
         node = self.get_node(node_data)
         if node is None:
             return []
-        queue: List[Node] = []
+        queue: List[Node] = [node]
         visited: List[Node] = []
-        queue.append(node)
         while len(queue) > 0:
             node = queue.pop(0)
             if node not in visited:
@@ -136,9 +135,8 @@ class Graph:
         node = self.get_node(node_data)
         if node is None:
             return []
-        stack: List[Node] = []
+        stack: List[Node] = [node]
         visited: List[Node] = []
-        stack.append(node)
         while len(stack) > 0:
             node = stack.pop()
             if node not in visited:
