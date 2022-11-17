@@ -58,6 +58,7 @@ class Graph:
         return self.__get_edge_by_nodes(node_from, node_to)
 
     # add an edge to the graph by node data
+    # TODO insert ordered
     def add_edge(self, node_from_data: str, node_to_data: str):
         node_from = self.get_node(node_from_data)
         if node_from is None:
