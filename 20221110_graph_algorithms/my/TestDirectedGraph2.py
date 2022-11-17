@@ -89,6 +89,15 @@ class TestGraph:
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()
 
+    def test_depth_first_search_book_edge(self):
+        print('Depth First Search: (A) Book Edge')
+        graph_searches = GraphSearches(self.graph)
+        print('')
+        matrix_edge: dict[str, str] = graph_searches.depth_first_search_book_edges()
+        for i in range(len(matrix_edge)):
+            print(f"{list(matrix_edge.keys())[i]}: {str(list(matrix_edge.values())[i])}")
+        print()
+
 
 if __name__ == "__main__":
     # We initialize the graph.
@@ -100,6 +109,7 @@ if __name__ == "__main__":
     test_graph.test_breadth_first_search_book_not_initialized()
     test_graph.test_depth_first_search()
     test_graph.test_depth_first_search_book()
+    test_graph.test_depth_first_search_book_edge()
 
     # test_graph.print_graph()
     # test_graph.test_remove_edge()
