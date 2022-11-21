@@ -38,25 +38,25 @@ class TestGraph:
         text += str(']\n')
         print(text)
 
-    def test_breadth_first_search_book(self):
+    def test_breadth_first_search_book(self, node_data: str):
         graph_searches = GraphSearches(self.graph)
-        print('Breadth First Search: (A) Book')
-        matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book('A')
+        print(f'Breadth First Search: ({node_data}) Book')
+        matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book(node_data)
         for i in range(len(matrix)):
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()
 
-    def test_breadth_first_search_book_not_initialized(self):
+    def test_breadth_first_search_book_not_initialized(self, node_data: str):
         graph_searches = GraphSearches(self.graph)
-        print('Breadth First Search: (A) Book (not initialized)')
-        matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book_not_initialized('A')
+        print(f'Breadth First Search: ({node_data}) Book (not initialized)')
+        matrix: dict[str, ItemMatrix] = graph_searches.breadth_first_search_book_not_initialized(node_data)
         for i in range(len(matrix)):
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()
 
-    def test_depth_first_search(self):
-        print('Depth First Search:')
-        nodes = self.graph.depth_first_search('A')
+    def test_depth_first_search(self, node_data: str):
+        print(f'Depth First Search: ({node_data})')
+        nodes = self.graph.depth_first_search(node_data)
         text = f"Nodes({len(nodes)}): [ "
         for node in nodes:
             text += str(node) + ' '
@@ -64,7 +64,7 @@ class TestGraph:
         print(text)
 
     def test_depth_first_search_book(self):
-        print('Depth First Search: (A) Book')
+        print('Depth First Search: Book')
         graph_searches = GraphSearches(self.graph)
         print('')
         matrix: dict[str, ItemMatrix] = graph_searches.depth_first_search_book()
