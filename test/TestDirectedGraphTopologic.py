@@ -1,6 +1,6 @@
-from Graph import Graph
-from GraphSearches import GraphSearches
-from ItemMatrix import ItemMatrix
+from src.Graph import Graph
+from src.GraphSearches import GraphSearches
+from src.ItemMatrix import ItemMatrix
 
 
 class TestGraph:

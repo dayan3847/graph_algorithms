@@ -1,5 +1,5 @@
-from Color import Color
-from Node import Node
+from src.Color import Color
+from src.Node import Node
 
 
 class ItemMatrix:

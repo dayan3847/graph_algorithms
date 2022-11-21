@@ -1,8 +1,8 @@
-from Graph import Graph
 from typing import List
-from Node import Node
-from ItemMatrix import ItemMatrix
-from Color import Color
+from src.Graph import Graph
+from src.Node import Node
+from src.ItemMatrix import ItemMatrix
+from src.Color import Color
 
 
 class GraphSearches:

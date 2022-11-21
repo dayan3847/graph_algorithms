@@ -1,30 +1,32 @@
-from Graph import Graph
-from GraphSearches import GraphSearches
-from ItemMatrix import ItemMatrix
+from src.Graph import Graph
+from src.GraphSearches import GraphSearches
+from src.ItemMatrix import ItemMatrix
 
 
 class TestGraph:
     graph: Graph
 
     def __init__(self):
-        self.graph = Graph()
+        self.graph = Graph(True)
 
         # Add nodes to the graph.
-        for i in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']:
+        for i in ['S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']:
             self.graph.add_node(i)
 
         # Add edges to the graph.
-        self.graph.add_edge('A', 'B')
-        self.graph.add_edge('A', 'E')
-        self.graph.add_edge('A', 'F')
-        self.graph.add_edge('B', 'F')
-        self.graph.add_edge('B', 'C')
-        self.graph.add_edge('C', 'G')
-        self.graph.add_edge('C', 'D')
-        self.graph.add_edge('D', 'G')
-        self.graph.add_edge('D', 'H')
-        self.graph.add_edge('G', 'F')
-        self.graph.add_edge('G', 'H')
+        self.graph.add_edge('S', 'Z')
+        self.graph.add_edge('S', 'W')
+        self.graph.add_edge('T', 'U')
+        self.graph.add_edge('T', 'V')
+        self.graph.add_edge('U', 'T')
+        self.graph.add_edge('U', 'V')
+        self.graph.add_edge('V', 'S')
+        self.graph.add_edge('V', 'W')
+        self.graph.add_edge('W', 'X')
+        self.graph.add_edge('X', 'Z')
+        self.graph.add_edge('Y', 'X')
+        self.graph.add_edge('Z', 'Y')
+        self.graph.add_edge('Z', 'W')
 
     def print_graph(self):
         print(str(test_graph.graph))
@@ -87,6 +89,15 @@ class TestGraph:
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()
 
+    def test_depth_first_search_book_edge(self):
+        print('Depth First Search: (A) Book Edge')
+        graph_searches = GraphSearches(self.graph)
+        print('')
+        matrix_edge: dict[str, str] = graph_searches.depth_first_search_book_edges()
+        for i in range(len(matrix_edge)):
+            print(f"{list(matrix_edge.keys())[i]}: {str(list(matrix_edge.values())[i])}")
+        print()
+
 
 if __name__ == "__main__":
     # We initialize the graph.
@@ -98,6 +109,7 @@ if __name__ == "__main__":
     test_graph.test_breadth_first_search_book_not_initialized()
     test_graph.test_depth_first_search()
     test_graph.test_depth_first_search_book()
+    test_graph.test_depth_first_search_book_edge()
 
     # test_graph.print_graph()
     # test_graph.test_remove_edge()
