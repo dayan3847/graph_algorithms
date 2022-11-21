@@ -24,8 +24,6 @@ if __name__ == "__main__":
 
     # We initialize the Test Graph.
     test_graph = TestGraph(graph)
-    # We print the graph with the valencies of each node.
-    test_graph.print_graph()
 
     test_graph.test_breadth_first_search('A')
     test_graph.test_breadth_first_search_book('A')
