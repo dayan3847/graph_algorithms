@@ -1,6 +1,8 @@
 from src.Graph import Graph
 from src.GraphSearches import GraphSearches
+from src.BellmanFord import BellmanFord
 from src.ItemMatrix import ItemMatrix
+from src.ItemMatrixBellmanFord import ItemMatrixBellmanFord
 
 
 class TestGraph:
@@ -8,6 +10,7 @@ class TestGraph:
 
     def __init__(self, graph: Graph):
         self.graph = graph
+        self.print_graph()
 
     def print_graph(self):
         print(str(self.graph))
@@ -68,6 +71,14 @@ class TestGraph:
         graph_searches = GraphSearches(self.graph)
         print('')
         matrix: dict[str, ItemMatrix] = graph_searches.depth_first_search_book()
+        for i in range(len(matrix)):
+            print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
+        print()
+
+    def test_bellman_ford(self, node_data: str):
+        print(f'Bellman Ford: ({node_data})')
+        bellman_ford = BellmanFord(self.graph)
+        matrix: dict[str, ItemMatrixBellmanFord] = bellman_ford.bellman_ford(node_data)
         for i in range(len(matrix)):
             print(f"{list(matrix.keys())[i]}: {str(list(matrix.values())[i])}")
         print()

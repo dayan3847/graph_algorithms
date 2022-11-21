@@ -59,7 +59,7 @@ class Graph:
 
     # add an edge to the graph by node data
     # TODO insert ordered
-    def add_edge(self, node_from_data: str, node_to_data: str):
+    def add_edge(self, node_from_data: str, node_to_data: str, weight: int = 1):
         node_from = self.get_node(node_from_data)
         if node_from is None:
             return
@@ -68,9 +68,9 @@ class Graph:
             return
         if self.__get_edge_by_nodes(node_from, node_to) is not None:
             return
-        self.__edges.append(Edge(node_from, node_to))
+        self.__edges.append(Edge(node_from, node_to, weight))
         if not self.__directed:
-            self.__edges.append(Edge(node_to, node_from))
+            self.__edges.append(Edge(node_to, node_from, weight))
 
     # remove an edge from the graph
     def remove_edge(self, node_from_data: str, node_to_data: str):
