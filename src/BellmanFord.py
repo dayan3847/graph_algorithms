@@ -25,10 +25,14 @@ class BellmanFord:
         matrix[str(node_root)].distance = 0
         node_length: int = len(nodes)
         for _ in range(1, node_length):
+            updated: bool = False
             for edge in edges:
                 if matrix[str(edge.node_to)].distance > matrix[str(edge.node_from)].distance + edge.weight:
                     matrix[str(edge.node_to)].distance = matrix[str(edge.node_from)].distance + edge.weight
                     matrix[str(edge.node_to)].predecessor = edge.node_from
+                    updated = True
+            if not updated:
+                break
         # check for negative weight cycles
         for edge in edges:
             if matrix[str(edge.node_from)].distance + edge.weight < matrix[str(edge.node_to)].distance:
